@@ -65,7 +65,7 @@ function Login() {
                                     <label htmlFor="password">Password</label>
                                     <Field type="password" name="password" />
                                     <ErrorMessage name="password" component="div" />
-                                    <button type="submit" disabled={isSubmitting || !isValid}>
+                                    <button type="submit" disabled={ !isValid}>
                                         Submit
                                     </button>
                                 </Form>

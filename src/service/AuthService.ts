@@ -1,5 +1,5 @@
-import { AxiosInstance } from "axios";
-import { baseInstance } from "./Api";
+import {AxiosInstance, name} from "axios";
+import { baseInstance} from "./Api";
 
 type LoginParams = {
     name : string
@@ -8,12 +8,17 @@ type LoginParams = {
 
 const AuthService = (api : AxiosInstance = baseInstance) => ({
     login : async (params : LoginParams) => {
-        const response = await api.post("login", params)
+        const encodedData = window.btoa(params.name + ":" + params.password);
+        const response = await api.get("/login", {
+            headers: {
+                Authorization: `Basic ${encodedData}`
+            }
+        })
         if(response && response.status == 200){
             console.log("success")
             console.log(response)
 
-            localStorage.setItem("accessToken", response.data.accessToken)
+            localStorage.setItem("accessToken", encodedData)
 
         }
     }

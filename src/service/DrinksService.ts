@@ -4,7 +4,9 @@ import { DrinkType } from './Types';
 
 const DrinksService = (api: AxiosInstance = baseInstance) => ({
     getAllDrinks: async () => {
-        const response = await api.get('drinks');
+        const response = await api.get('drink/alldrinks', {
+
+        });
         return response.data;
     },
     getDrinksById: async (id: string) => {
