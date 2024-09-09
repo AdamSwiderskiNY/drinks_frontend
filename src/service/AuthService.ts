@@ -1,4 +1,4 @@
-import {AxiosInstance, name} from "axios";
+import {AxiosInstance} from "axios";
 import { baseInstance} from "./Api";
 
 type LoginParams = {

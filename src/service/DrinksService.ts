@@ -10,13 +10,15 @@ const DrinksService = (api: AxiosInstance = baseInstance) => ({
         return response.data;
     },
     getDrinksById: async (id: string) => {
-        const response = await api.get(`drink/${id}`);
+        const response = await api.get(`/drink/${id}`, {
+            
+        });
         return response.data;
     },
-    deleteDrinksById: async (id: string) => {
+    deleteDrinksById: async (id: number) => {
         await api.delete(`drink/${id}`);
     },
-    updateDrinksById: async (id: string, drink: DrinkType) => {
+    updateDrinksById: async (id: number, drink: DrinkType) => {
         await api.put(`drink/${id}`, drink);
     },
     createDrinks: async (drink: Omit<DrinkType, 'id'>) => {

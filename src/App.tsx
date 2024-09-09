@@ -4,8 +4,11 @@ import Homepage from "./pages/Homepage.tsx"
 import DrinksPage from "./pages/DrinksPage.tsx";
 import NotFoundPage from "./pages/NotFoundPage.tsx";
 import Loginpage from "./pages/Loginpage.tsx";
+import DrinkByIdPage from "./pages/DrinkByIdPage.tsx";
 
 function App() {
+
+
 
     return (
         <>
@@ -16,6 +19,7 @@ function App() {
                         <Route path='/home' element={<Homepage />}/>
                         <Route path='/drinks' element={<DrinksPage />}/>
                         <Route path='/*' element={<NotFoundPage />}/>
+                        <Route path="/drinks/:id" element={<DrinkByIdPage />}/>
 
                     </Routes>
                 </BrowserRouter>
